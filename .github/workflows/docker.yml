@@ -40,6 +40,8 @@ jobs:
           curl -LO https://github.com/getsops/sops/releases/download/v3.8.1/sops-v3.8.1.linux.amd64
           sudo mv sops-v3.8.1.linux.amd64 /usr/local/bin/sops
           sudo chmod +x /usr/local/bin/sops
+      - uses: actions/setup-python@v5
+      - run: pip install -r requirements.txt
       - run: make internal
         env:
           SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY_FILE }}
