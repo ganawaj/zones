@@ -107,4 +107,4 @@ jobs:
           labels: ${{ steps.metadata.outputs.labels }}
           build-args: |
             ZONE_VERSION=${{ needs.version.outputs.version }}
-            COREDNS_VERSION="1.11.2"
+            COREDNS_VERSION=1.11.2
