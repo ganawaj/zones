@@ -1,0 +1,34 @@
+# vSphere Servers
+
+## vCenter Server
+xdymgmtvcsa01:
+  - type: A
+    value: 10.4.0.211
+xdy-mgmt-vcsa01:
+  - type: A
+    value: 10.4.0.211
+
+## ESXi Server
+xdymgmtsrv01:
+  - type: A
+    value: 10.4.0.200
+xdymgmtsrv02:
+  - type: A
+    value: 10.4.0.201
+xdymgmtsrv03:
+  - type: A
+    value: 10.4.0.202
+xdy-mgmt-srv01:
+  - type: A
+    value: 10.4.0.200
+xdy-mgmt-srv02:
+  - type: A
+    value: 10.4.0.201
+xdy-mgmt-srv03:
+  - type: A
+    value: 10.4.0.202
+
+## NAS
+xdy-nas01:
+  - type: A
+    values: 10.4.0.100
