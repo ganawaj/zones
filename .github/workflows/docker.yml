@@ -16,7 +16,7 @@ on:
 
 jobs:
   version:
-    name: Build modified chart
+    name: Determine semver
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.gitversion.outputs.semVer }}

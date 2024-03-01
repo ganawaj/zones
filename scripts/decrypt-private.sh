@@ -1,11 +1,19 @@
 #!/usr/bin/env bash
 set -e
 
+echo "::group::Decrypting secrets"
+
 SCRIPT_DIR=$(cd `dirname $0` && pwd)
+echo "SCRIPT_DIR is $SCRIPT_DIR"
+
 TOP_DIR=$(dirname ${SCRIPT_DIR})
+echo "SCRIPT_DIR is $TOP_DIR"
 
 SECRET_DIR="$TOP_DIR/zones/secret"
+echo "setting SECRET_DIR to $SECRET_DIR"
 
+
+echo "beginging decryption:"
 # For each of our files in our encrypted config
 for src_file in $(find $SECRET_DIR -name '*.yaml'); do
 
@@ -15,7 +23,11 @@ for src_file in $(find $SECRET_DIR -name '*.yaml'); do
   dest_path="$(yq .path $src_file)"
   target_file="$TOP_DIR/$dest_path$src_filename"
 
+  echo "found file $src_filename: decrypting to $target_file"
+
   # decrypt and place in build dir
   sops -d --ignore-mac $src_file | yq .data > $target_file
 
 done
+
+echo "::endgroup::"
