@@ -9,10 +9,10 @@ on:
       - 'hotfix/**'
     tags:
       - '*'
-    paths:
-      - 'zones/config/**'
-      - 'zones/internal/**'
-      - 'zones/secret/**'
+    # paths:
+    #   - 'zones/config/**'
+    #   - 'zones/internal/**'
+    #   - 'zones/secret/**'
 
 jobs:
   version:
