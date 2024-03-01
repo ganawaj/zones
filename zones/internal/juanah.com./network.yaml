@@ -1,0 +1,16 @@
+# routers
+xdy-bdr-rtr01:
+  - type: A
+    value: 10.1.4.1
+
+xdy-bdr-rtr02:
+  - type: A
+    value: 10.1.4.2
+
+xdy-bdr-sw01:
+  - type: A
+    value: 10.1.4.3
+
+xdy-bdr-sw02:
+  - type: A
+    value: 10.1.4.4
