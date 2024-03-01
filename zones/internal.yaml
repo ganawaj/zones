@@ -21,7 +21,7 @@ providers:
 
   zonefile:
       class: octodns_bind.ZoneFileProvider
-      directory: zonefiles
+      directory: exports
       file_extension: .db
       check_origin: false
 
