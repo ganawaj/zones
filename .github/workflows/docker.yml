@@ -36,6 +36,10 @@ jobs:
     needs: version
     steps:
       - uses: actions/checkout@v4
+      - run: |
+          curl -LO https://github.com/getsops/sops/releases/download/v3.8.1/sops-v3.8.1.linux.amd64
+          sudo mv sops-v3.8.1.linux.amd64 /usr/local/bin/sops
+          sudo chmod +x /usr/local/bin/sops
       - run: make internal
         env:
           SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY_FILE }}
