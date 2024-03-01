@@ -10,14 +10,21 @@ SCRIPT_DIR=$(cd `dirname $0` && pwd)
 echo "SCRIPT_DIR is $SCRIPT_DIR"
 
 TOP_DIR=$(dirname ${SCRIPT_DIR})
-echo "SCRIPT_DIR is $TOP_DIR"
+echo "TOP_DIR is $TOP_DIR"
+
+ZONE_DIR="$TOP_DIR/zones/"
+echo "ZONE_DIR is $ZONE_DIR"
 
 SECRET_DIR="$TOP_DIR/zones/secret"
 echo "setting SECRET_DIR to $SECRET_DIR"
 echo "::endgroup::"
 
+if [[ ! -z `find $SECRET_DIR -name '*.yaml'` ]]; then
+  echo "No valid secrets to decrypt"
+else
+  echo "Decrypting secrets"
+fi 
 
-echo "beginging decryption:"
 # For each of our files in our encrypted config
 for src_file in $(find $SECRET_DIR -name '*.yaml'); do
 
@@ -26,7 +33,7 @@ for src_file in $(find $SECRET_DIR -name '*.yaml'); do
 
   # Determine target for our file
   dest_path="$(yq .path $src_file)"
-  target_file="$TOP_DIR/$dest_path$src_filename"
+  target_file="$ZONE_DIR/$dest_path$src_filename"
 
   echo "decrypting to $target_file"
 
