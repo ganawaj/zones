@@ -19,11 +19,13 @@ SECRET_DIR="$TOP_DIR/zones/secret"
 echo "setting SECRET_DIR to $SECRET_DIR"
 echo "::endgroup::"
 
+# check if secrets exists
 if [[ ! -z `find $SECRET_DIR -name '*.yaml'` ]]; then
   echo "No valid secrets to decrypt"
+  exit 0
 else
   echo "Decrypting secrets"
-fi 
+fi
 
 # For each of our files in our encrypted config
 for src_file in $(find $SECRET_DIR -name '*.yaml'); do
