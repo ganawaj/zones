@@ -3,7 +3,6 @@
     log
     debug
     errors
-    loop
     any
     cancel
     ready
