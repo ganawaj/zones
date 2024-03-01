@@ -1,34 +1,17 @@
 # Kubernetes
 
-## Production
-### xdy-prd-k8s1
+## Kubernetes ingress loadbalancer
+### Production
+xdy-prd-k8s1-lb1:
+  - type: A
+    value: 10.2.0.10
+xdy-prd-k8s2-lb1:
+  - type: A
+    value: 10.2.0.11
+### CNAMES
 xdy-prd-k8s1:
   - type: CNAME
     value: xdy-prd-lb.juanah.com.
-xdy-prd-k8s1-lb1:
-  - type: A
-    value: 10.0.0.10
-
-### xdy-prd-k8s2
 xdy-prd-k8s2:
   - type: CNAME
     value: xdy-prd-lb.juanah.com.
-xdy-prd-k8s2-lb1:
-  - type: A
-    value: 10.0.0.10
-
-## xdy-tst-k8s1
-# xdy-tst-k8s1:
-#   - type: CNAME
-#     value: xdy-prd-lb.juanah.com.
-# xdy-tst-k8s1-lb1:
-#   - type: A
-#     value: 10.2.0.20
-
-## xdy-dev-k8s1
-# xdy-dev-k8s1:
-#   - type: CNAME
-#     value: xdy-prd-lb.juanah.com.
-# xdy-dev-k8s1-lb1:
-#   - type: A
-#     value: 10.2.0.30
