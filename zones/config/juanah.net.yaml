@@ -1,0 +1,8 @@
+---
+? ''
+: octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: v=spf1 -all

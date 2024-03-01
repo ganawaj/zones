@@ -1,0 +1,70 @@
+---
+manager:
+  max_workers: 4
+
+providers:
+  cloudflare:
+    class: octodns_cloudflare.CloudflareProvider
+    token: env/CLOUDFLARE_TOKEN
+
+  external:
+    class: octodns.provider.yaml.YamlProvider
+    directory: ./zones/config
+    enforce_order: false
+
+  zonefile:
+      class: octodns_bind.ZoneFileProvider
+      directory: zonefiles/external
+      file_extension: .db
+      check_origin: false
+zones:
+
+  juanah.com.:
+    lenient: false
+    sources:
+      - external
+    targets:
+      - zonefile
+      # - cloudflare
+
+  juanah.io.:
+    lenient: false
+    sources:
+      - external
+    targets:
+      - zonefile
+      # - cloudflare
+
+  juanah.net.:
+    lenient: false
+    sources:
+      - external
+    targets:
+      - zonefile
+      # - cloudflare
+
+  juanah.org.:
+    alias: juanah.net.
+
+  juanah.cloud.:
+    alias: juanah.net.
+
+  juanah.network.:
+    alias: juanah.net.
+
+  jnh-dns.com.:
+    lenient: false
+    sources:
+      - external
+    targets:
+      - zonefile
+      # - cloudflare
+
+  jnh-dns.co.uk.:
+    alias: jnh-dns.com.
+
+  jnh-dns.net.:
+    alias: jnh-dns.com.
+
+  jnh-dns.org.:
+    alias: jnh-dns.com.

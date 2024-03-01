@@ -1,0 +1,10 @@
+## ESXi IPMI
+xdymgmtsrv01mgmt:
+  - type: A
+    value: 10.3.4.200
+xdymgmtsrv02mgmt:
+  - type: A
+    value: 10.3.4.201
+xdymgmtsrv03mgmt:
+  - type: A
+    value: 10.3.4.202

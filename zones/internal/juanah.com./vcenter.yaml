@@ -1,0 +1,17 @@
+# vSphere Servers
+
+## vCenter Server
+xdymgmtvcsa01:
+  - type: A
+    value: 10.4.0.211
+
+## ESXi Server
+xdymgmtsrv01:
+  - type: A
+    value: 10.4.0.200
+xdymgmtsrv02:
+  - type: A
+    value: 10.4.0.201
+xdymgmtsrv03:
+  - type: A
+    value: 10.4.0.202

@@ -1,0 +1,53 @@
+---
+manager:
+  max_workers: 4
+
+providers:
+  cloudflare:
+    class: octodns_cloudflare.CloudflareProvider
+    token: env/CLOUDFLARE_TOKEN
+
+  internal:
+    class: octodns.provider.yaml.YamlProvider
+    directory: ./zones/internal
+    populate_should_replace: true
+    split_extension: .
+    enforce_order: false
+
+  external:
+    class: octodns.provider.yaml.YamlProvider
+    directory: ./zones/config
+    enforce_order: false
+
+  zonefile:
+      class: octodns_bind.ZoneFileProvider
+      directory: zonefiles
+      file_extension: .db
+      check_origin: false
+
+zones:
+
+  juanah.com.:
+    lenient: false
+    sources:
+      - external
+      - internal
+    targets:
+      - zonefile
+
+  jnh-dns.com.:
+    lenient: false
+    sources:
+      - external
+      - internal
+    targets:
+      - zonefile
+
+  jnh-dns.co.uk.:
+    alias: jnh-dns.com.
+
+  jnh-dns.net.:
+    alias: jnh-dns.com.
+
+  jnh-dns.org.:
+    alias: jnh-dns.com.
