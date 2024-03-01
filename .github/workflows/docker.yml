@@ -42,7 +42,7 @@ jobs:
           sudo chmod +x /usr/local/bin/sops
       - uses: actions/setup-python@v5
       - run: pip install -r requirements.txt
-      - run: make internal
+      - run: make release VERSION=internal DOIT=true
         env:
           SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY_FILE }}
       - uses: docker/login-action@v2
