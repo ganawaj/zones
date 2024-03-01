@@ -1,0 +1,11 @@
+FROM busybox AS zones
+
+RUN mkdir -p /zones
+ADD exports /zones
+
+FROM ganawaj/coredns:1.11.2
+
+COPY --from=zones --chown=nonroot:nonroot /zones /etc/coredns/zones
+COPY --chown=nonroot:nonroot configs/Corefile /etc/coredns/Corefile
+
+CMD [ "--conf", "/etc/coredns/Corefile" ]

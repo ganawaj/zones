@@ -1,0 +1,11 @@
+ARG ZONE_VERSION
+ARG COREDNS_VERSION
+
+FROM ganawaj/zones:${ZONE_VERSION}-slim AS zones
+
+FROM ganawa/coredns:${COREDNS_VERSION}
+
+COPY --from=zones --chown=nonroot:nonroot /zones /etc/coredns/zones
+COPY --chown=nonroot:nonroot configs/Corefile /etc/coredns/Corefile
+
+CMD [ "--conf", "/etc/coredns/Corefile" ]

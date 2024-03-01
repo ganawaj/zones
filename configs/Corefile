@@ -1,0 +1,21 @@
+(defaults) {
+    reload 2s
+    log
+    debug
+    errors
+    loop
+    any
+    cancel
+    ready
+}
+
+.:53 {
+
+    auto {
+        directory /etc/coredns/zones (.*).db {1}
+        reload 5s
+    }
+
+    import defaults
+
+}

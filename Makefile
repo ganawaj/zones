@@ -3,7 +3,6 @@
 MAKEPWD:=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 ZONEPATH?=${MAKEPWD}/zones
 VERSION:=
-DOIT?=""
 
 .PHONY: all
 all:
@@ -38,9 +37,7 @@ endif
 ifeq ($(VERSION),)
 	$(error "Please specify a version use. Use VERSION=[internal|external]")
 endif
-
-	octodns-sync --config-file zones/$(VERSION).yaml
-
+	@scripts/generate.sh $(VERSION)
 
 # ==================================================================================== #
 # HELPERS
