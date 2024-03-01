@@ -3,11 +3,11 @@
 MAKEPWD:=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 ZONEPATH?=${MAKEPWD}/zones
 VERSION:=
+CLOUDFLARE_TOKEN?=""
 
 .PHONY: all
 all:
-	@echo Use the 'release' target to build released zones.
-	@echo "VERSION=$(VERSION)"
+	@echo "::error::Use the 'release' target to build released zones."
 
 .PHONY: release
 ifeq ($(VERSION),)

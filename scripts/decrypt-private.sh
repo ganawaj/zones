@@ -1,23 +1,19 @@
 #!/usr/bin/env bash
 set -e
 
-ls
-pwd
-
 echo "::group::Decrypting secrets"
 
 SCRIPT_DIR=$(cd `dirname $0` && pwd)
-echo "SCRIPT_DIR is $SCRIPT_DIR"
+echo "::debug::SCRIPT_DIR is $SCRIPT_DIR"
 
 TOP_DIR=$(dirname ${SCRIPT_DIR})
-echo "TOP_DIR is $TOP_DIR"
+echo "::debug::TOP_DIR is $TOP_DIR"
 
-ZONE_DIR="$TOP_DIR/zones/"
-echo "ZONE_DIR is $ZONE_DIR"
+ZONE_DIR="$TOP_DIR/zones"
+echo "::debug::ZONE_DIR is $ZONE_DIR"
 
 SECRET_DIR="$TOP_DIR/zones/secret"
-echo "setting SECRET_DIR to $SECRET_DIR"
-echo "::endgroup::"
+echo "::debug::setting SECRET_DIR to $SECRET_DIR"
 
 # check if secrets exists
 # if [[ ! -z `find $SECRET_DIR -name '*.yaml'` ]]; then
@@ -31,15 +27,15 @@ echo "::endgroup::"
 for src_file in $(find $SECRET_DIR -name '*.yaml'); do
 
   src_filename="$(basename "$src_file")"
-  echo "::group::Decrypting $src_filename"
 
   # Determine target for our file
   dest_path="$(yq .path $src_file)"
   target_file="$ZONE_DIR/$dest_path$src_filename"
 
-  echo "decrypting to $target_file"
+  echo "Decrypting $src_filename to $target_file"
 
   # decrypt and place in build dir
   sops -d --ignore-mac $src_file | yq .data > $target_file
-echo "::endgroup::"
 done
+
+echo "::endgroup::"

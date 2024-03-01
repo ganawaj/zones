@@ -3,5 +3,4 @@ creation_rules:
     encrypted_regex: '^data$'
     age: >-
       age12x2zg2e994trvq90a7q9q7ffepd6sxlmaf52wc4mtny8svaq9yjsuazh7n,
-      age1rcveekrs70qdrpsgd8h4tmfgax6l32jzk0cxpfs6e4sw7kvhqsss27aaw4,
-      age1j8zcf68d3zu520n4y99en3z6g5dek58y4ecyx3f9rz8r04kucaeq3qn2ty
+      age1rcveekrs70qdrpsgd8h4tmfgax6l32jzk0cxpfs6e4sw7kvhqsss27aaw4
