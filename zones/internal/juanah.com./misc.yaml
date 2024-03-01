@@ -1,10 +1,26 @@
 ## ESXi IPMI
-xdymgmtsrv01mgmt:
+xdy-mgmt-srv01.mgmt:
   - type: A
     value: 10.3.4.200
-xdymgmtsrv02mgmt:
+xdy-mgmt-srv02.mgmt:
   - type: A
     value: 10.3.4.201
-xdymgmtsrv03mgmt:
+xdy-mgmt-srv03.mgmt:
   - type: A
     value: 10.3.4.202
+
+# Mgmt interfaces
+xdy-bdr-sw01.mgmt:
+  - type: A
+    value: 10.3.4.4
+
+xdy-nas01.mgmt:
+  - type: A
+    value: 10.3.4.250
+
+xdy-bdr-rtr01.mgmt:
+  - type: A
+    value: 10.3.4.253
+xdy-bdr-rtr02.mgmt:
+  - type: A
+    value: 10.3.4.254
