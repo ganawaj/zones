@@ -44,7 +44,7 @@ jobs:
       - run: pip install -r requirements.txt
       - run: make release VERSION=internal DOIT=true
         env:
-          SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY_FILE }}
+          SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
       - uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
