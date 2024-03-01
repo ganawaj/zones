@@ -37,6 +37,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: make internal
+        env:
+          SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY_FILE }}
       - uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
@@ -66,7 +68,9 @@ jobs:
   releasee:
     name: Release zones full
     runs-on: ubuntu-latest
-    needs: version
+    needs:
+      - version
+      - release-lite
     steps:
       - uses: actions/checkout@v4
       - uses: docker/login-action@v2
@@ -88,13 +92,13 @@ jobs:
             org.opencontainers.image.authors=Ganawa Juanah(ganawa@juanah.com)
             org.opencontainers.image.url=github.com/ganawaj/zones
             org.opencontainers.image.version=${{ needs.version.outputs.version }}
-        - uses: docker/build-push-action@v4
-          with:
-            context: .
-            file: build/docker/Dockerfile.dns
-            push: true
-            tags: ${{ steps.metadata.outputs.tags }}
-            labels: ${{ steps.metadata.outputs.labels }}
-            build-args: |
-              ZONE_VERSION=${{ needs.version.outputs.version }}
-              COREDNS_VERSION="1.11.2"
+      - uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: build/docker/Dockerfile.dns
+          push: true
+          tags: ${{ steps.metadata.outputs.tags }}
+          labels: ${{ steps.metadata.outputs.labels }}
+          build-args: |
+            ZONE_VERSION=${{ needs.version.outputs.version }}
+            COREDNS_VERSION="1.11.2"
