@@ -8,8 +8,8 @@
 
 internal-dns-a:
   - type: CNAME
-    value: 10.2.4.10
+    value: xdy-mgmt-k8s1.juanah.com.
 
 internal-dns-b:
   - type: CNAME
-    value: 10.2.4.10
+    value: xdy-mgmt-k8s1.juanah.com.
