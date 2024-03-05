@@ -6,3 +6,10 @@
       - jnh-dns.com.
       - jnh-dns.co.uk.
 
+internal-dns-a:
+  - type: CNAME
+    value: 10.2.4.10
+
+internal-dns-b:
+  - type: CNAME
+    value: 10.2.4.10

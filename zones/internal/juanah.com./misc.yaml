@@ -13,11 +13,9 @@ xdy-mgmt-srv03.mgmt:
 xdy-bdr-sw01.mgmt:
   - type: A
     value: 10.3.4.4
-
 xdy-nas01.mgmt:
   - type: A
     value: 10.3.4.250
-
 xdy-bdr-rtr01.mgmt:
   - type: A
     value: 10.3.4.253

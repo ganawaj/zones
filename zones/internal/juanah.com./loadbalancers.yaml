@@ -1,14 +1,29 @@
 # loadbalancers
+xdy-mgmt-lb1:
+  - type: A
+    value: 10.4.4.13
+xdy-mgmt-lb2:
+  - type: A
+    value: 10.4.4.14
+xdy-mgmt-lb3:
+  - type: A
+    value: 10.4.4.15
+## loadbalancers vip
+xdy-mgmt-lb:
+  - type: A
+    value: 10.4.4.12
+
+# loadbalancers
 xdy-prd-lb1:
   - type: A
-    value: 10.4.0.11
+    value: 10.4.8.13
 xdy-prd-lb2:
   - type: A
-    value: 10.4.0.12
+    value: 10.4.8.14
 xdy-prd-lb3:
   - type: A
-    value: 10.4.0.13
+    value: 10.4.8.15
 ## loadbalancers vip
 xdy-prd-lb:
   - type: A
-    value: 10.4.0.10
+    value: 10.4.8.12
