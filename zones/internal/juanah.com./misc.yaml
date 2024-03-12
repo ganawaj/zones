@@ -22,3 +22,20 @@ xdy-bdr-rtr01.mgmt:
 xdy-bdr-rtr02.mgmt:
   - type: A
     value: 10.3.4.254
+
+# Other
+admin:
+  - type: CNAME
+    value: xdy-prd-k8s1-lb1.juanah.com.
+
+minio:
+  - type: CNAME
+    value: xdy-prd-k8s1-lb1.juanah.com.
+
+s3:
+  - type: CNAME
+    value: xdy-prd-k8s1-lb1.juanah.com.
+
+wiki:
+  - type: CNAME
+    value: xdy-prd-k8s1-lb1.juanah.com.
